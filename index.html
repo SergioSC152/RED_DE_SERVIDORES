@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de administración de servidores dinámicos</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="encabezado">
+        <div class="contenedor">
+            <h1>Panel de administración de servidores dinámicos</h1>
+            <p>
+                Sistema de monitoreo y distribución de solicitudes
+                mediante un balanceador de carga.
+            </p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+
+        <!-- Resumen del sistema -->
+        <section>
+            <h2>Resumen del sistema</h2>
+
+            <div class="tarjetas">
+                <article class="tarjeta">
+                    <h3>Solicitudes atendidas</h3>
+                    <p id="totalSolicitudes" class="numero">0</p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Servidores configurados</h3>
+                    <p id="totalServidores" class="numero">0</p>
+                </article>
+
+                <article class="tarjeta">
+                    <h3>Servidores activos</h3>
+                    <p id="servidoresActivos" class="numero verde">0</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Listado de servidores -->
+        <section class="panel">
+            <div class="cabecera-seccion">
+                <h2>Listado de servidores</h2>
+                <button id="btnActualizar" class="boton secundario">
+                    Actualizar información
+                </button>
+            </div>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Puerto</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaServidores">
+                        <tr>
+                            <td colspan="3">Consultando servidores...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Gestión de solicitudes -->
+        <section class="panel">
+            <h2>Gestión de solicitudes</h2>
+            <p>
+                Envía una solicitud al balanceador para que sea
+                procesada por uno de los servidores disponibles.
+            </p>
+
+            <button id="btnSolicitar" class="boton principal">
+                Enviar solicitud
+            </button>
+
+            <div id="resultadoSolicitud" class="resultado">
+                Todavía no se ha enviado ninguna solicitud.
+            </div>
+        </section>
+
+        <!-- Estadísticas -->
+        <section class="panel">
+            <div class="cabecera-seccion">
+                <h2>Estadísticas por servidor</h2>
+                <button id="btnEstadisticas" class="boton secundario">
+                    Actualizar estadísticas
+                </button>
+            </div>
+
+            <div id="estadisticas">
+                Consultando estadísticas...
+            </div>
+        </section>
+
+        <!-- Mensajes -->
+        <section class="panel">
+            <h2>Mensajes del sistema</h2>
+            <div id="mensajes" class="mensajes" role="status" aria-live="polite">
+                Sistema iniciado. Esperando conexión con la API.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Universidad de Cundinamarca</p>
+        <p>CADI Redes y Comunicación - Taller S11</p>
+    </footer>
+
+</body>
+</html>
